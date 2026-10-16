@@ -1,0 +1,155 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Spanish Midterm Dialogue</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:wght@600;700&display=swap">
+<style>
+/* Layout: sticky control bar over a single reading column; speakers are told apart by text color, not boxes. */
+:root{
+  --bg:#f7f8fa; --fg:#1b1f26; --muted:#5b6472; --line:#d9dde4;
+  --chris:#6a17ae; --greg:#0a4f90; --chris-bg:#f1e8fb; --greg-bg:#e3eefa; --panel:#ffffff;
+  --font-display:"Bricolage Grotesque","Atkinson Hyperlegible",system-ui,sans-serif;
+  --font-body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12151a; --fg:#e8ebf0; --muted:#9aa4b2; --line:#2a303a;
+    --chris:#d4b3ff; --greg:#8fc2f8; --chris-bg:#2b2040; --greg-bg:#17293e; --panel:#1a1f27; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12151a; --fg:#e8ebf0; --muted:#9aa4b2; --line:#2a303a;
+  --chris:#d4b3ff; --greg:#8fc2f8; --chris-bg:#2b2040; --greg-bg:#17293e; --panel:#1a1f27; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:17px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:10}
+.wrap{max-width:46rem;margin:0 auto;min-width:0}
+header{padding-top:28px}
+h1{font-family:var(--font-display);font-size:clamp(1.6rem,5vw,2.2rem);line-height:1.15;margin:0 0 6px;text-wrap:balance}
+.sub{margin:0;color:var(--muted);font-size:.95rem}
+.cast{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-weight:700;font-size:.95rem}
+.cast .c{color:var(--chris)} .cast .g{color:var(--greg)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;margin-top:12px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.seg{display:flex;gap:8px}
+.seg button{flex:1 1 0;min-width:0}
+.short{display:none}
+button{font:inherit;color:inherit;cursor:pointer}
+.seg button,.tool button{border:1.5px solid var(--fg);background:transparent;color:var(--fg);padding:9px 14px;border-radius:8px;font-weight:700;font-size:.95rem;min-height:44px}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.tool{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tool button.go{border-color:var(--who,var(--fg));color:var(--who,var(--fg))}
+.tool button.go[aria-pressed="true"]{background:var(--who,var(--fg));color:var(--bg)}
+.tool .hint{color:var(--muted);font-size:.88rem}
+button:focus-visible{outline:3px solid var(--fg);outline-offset:2px}
+ol{list-style:none;margin:0;padding:12px 0 0;display:flex;flex-direction:column;gap:8px}
+.row{padding:12px 14px;border-radius:10px;background:var(--row-bg);display:grid;grid-template-columns:5.2rem minmax(0,1fr);gap:4px 12px}
+.who{font-weight:700;font-size:.95rem;padding-top:2px}
+.row.c{--who:var(--chris);--row-bg:var(--chris-bg)} .row.g{--who:var(--greg);--row-bg:var(--greg-bg)}
+.who,.es,.en,.tr{color:var(--who)}
+.body{min-width:0}
+.es{font-size:1.08rem}
+.en{font-size:1.08rem}
+.all .en{font-size:.95rem;color:var(--muted);font-style:italic;margin-top:2px}
+.line{display:block;width:100%;text-align:left;background:none;border:0;padding:2px 0;min-height:32px}
+.line.tap{cursor:pointer}
+.line.tap:hover .en{text-decoration:underline dotted;text-underline-offset:4px}
+.tr{margin-top:8px;padding:8px 10px;border-radius:8px;background:var(--bg);font-size:1.05rem}
+.tr small{display:block;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.tapnote{display:block;color:var(--muted);font-size:.82rem;margin-top:2px}
+@media (max-width:520px){
+  body{font-size:16px}
+  header{padding-top:18px}
+  .cast{display:none}
+  .long{display:none}.short{display:inline}
+  .seg button{padding:8px 6px}
+  .tool{flex-wrap:nowrap}
+  .tool button{flex:1 1 auto}
+  .tool .hint{display:none}
+  .row{grid-template-columns:1fr;gap:2px;padding:11px 13px}
+  .who{padding-top:0;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em}
+  .tr small{display:inline;margin-right:8px}
+}
+@media (prefers-reduced-motion:no-preference){.tr{animation:in .18s ease-out}@keyframes in{from{opacity:.0;transform:translateY(-2px)}to{opacity:1;transform:none}}}
+</style>
+<div class="wrap">
+<header>
+  <h1>Spanish Midterm Dialogue</h1>
+  <p class="sub">Spanish 1A. One conversation, three ways to read it.</p>
+  <div class="cast"><span class="c">Christine</span><span class="g">Gregory</span></div>
+</header>
+<div class="bar">
+  <div class="seg" role="group" aria-label="View">
+    <button id="m-all" data-mode="all" aria-pressed="true"><span class="long">Show all</span><span class="short">All</span></button>
+    <button id="m-christine" data-mode="christine" aria-pressed="false"><span class="long">Christine's view</span><span class="short">Christine</span></button>
+    <button id="m-gregory" data-mode="gregory" aria-pressed="false"><span class="long">Gregory's view</span><span class="short">Gregory</span></button>
+  </div>
+  <div class="tool" id="tool" hidden>
+    <button id="convert" class="go" aria-pressed="false"></button>
+    <button id="reset" hidden>Hide all Spanish</button>
+    <span class="hint" id="hint"></span>
+  </div>
+</div>
+<ol id="list" aria-live="polite"></ol>
+</div>
+<script>
+const DATA = [{"who": "Christine", "es": "¡Buenas tardes! ¿Qué tal?", "en": "Good afternoon! How's it going?"}, {"who": "Gregory", "es": "¡Hola! Muy bien, gracias. ¿Y tú?", "en": "Hello! Very well, thanks. And you?"}, {"who": "Christine", "es": "Bien, gracias. Me llamo Christine. ¿Cómo te llamas?", "en": "Fine, thanks. My name is Christine. What's your name?"}, {"who": "Gregory", "es": "Me llamo Gregory. Encantado.", "en": "My name is Gregory. Nice to meet you."}, {"who": "Christine", "es": "Mucho gusto. ¿Cuál es tu apellido?", "en": "Pleased to meet you. What's your surname?"}, {"who": "Gregory", "es": "Mi apellido es Galera. ¿Y tú? ¿Cuál es tu apellido?", "en": "My surname is Galera. And you? What's your surname?"}, {"who": "Christine", "es": "Mi apellido es López.", "en": "My surname is López."}, {"who": "Gregory", "es": "¿De dónde eres?", "en": "Where are you from?"}, {"who": "Christine", "es": "Soy de España. Soy española. Soy de Sevilla, pero vivo en Madrid. ¿Y tú? ¿De dónde eres?", "en": "I'm from Spain. I'm Spanish. I'm from Seville, but I live in Madrid. And you? Where are you from?"}, {"who": "Gregory", "es": "Soy de Trinidad y Tobago. Vivo en Trinidad.", "en": "I'm from Trinidad and Tobago. I live in Trinidad."}, {"who": "Christine", "es": "¡Qué bien! ¿Qué tiempo hace en Trinidad?", "en": "How nice! What's the weather like in Trinidad?"}, {"who": "Gregory", "es": "Hace mucho calor. ¿Y en Madrid?", "en": "It's very hot. And in Madrid?"}, {"who": "Christine", "es": "En Madrid hace frío y está nublado. Madrid es una ciudad grande. ¿Cuál es la fiesta más famosa de Trinidad?", "en": "In Madrid it's cold and cloudy. Madrid is a big city. What's the most famous festival in Trinidad?"}, {"who": "Gregory", "es": "Es el Carnaval.", "en": "It's Carnival."}, {"who": "Christine", "es": "¡Qué bien! ¿Cuántos años tienes?", "en": "How nice! How old are you?"}, {"who": "Gregory", "es": "Tengo treinta y nueve años. ¿Y tú?", "en": "I'm 39. And you?"}, {"who": "Christine", "es": "Tengo treinta y dos años.", "en": "I'm 32."}, {"who": "Gregory", "es": "¿En qué trabajas?", "en": "What do you do for work?"}, {"who": "Christine", "es": "Soy profesora. Enseño español en una escuela de idiomas. ¿Y tú? ¿En qué trabajas?", "en": "I'm a teacher. I teach Spanish at a language school. And you? What do you do for work?"}, {"who": "Gregory", "es": "Soy gerente. Trabajo en una oficina. Estoy bien, pero trabajo mucho y estoy cansado.", "en": "I'm a manager. I work in an office. I'm fine, but I work a lot and I'm tired."}, {"who": "Christine", "es": "¿Te gusta tu trabajo?", "en": "Do you like your job?"}, {"who": "Gregory", "es": "Sí, me gusta mi trabajo. Mi jefe es muy simpático. ¿Y a ti?", "en": "Yes, I like my job. My boss is very nice. And you?"}, {"who": "Christine", "es": "Sí, me gusta mucho. Amo mi trabajo.", "en": "Yes, I like it a lot. I love my work."}, {"who": "Christine", "es": "¿Qué idiomas hablas?", "en": "What languages do you speak?"}, {"who": "Gregory", "es": "Hablo inglés y un poco de español.", "en": "I speak English and a little Spanish."}, {"who": "Christine", "es": "¿Hablas francés?", "en": "Do you speak French?"}, {"who": "Gregory", "es": "No, no hablo nada de francés.", "en": "No, I don't speak any French at all."}, {"who": "Christine", "es": "¿Hablas bien español?", "en": "Do you speak Spanish well?"}, {"who": "Gregory", "es": "Hablo un poco. Entiendo bastante bien. Escribo regular. Puedo escribir mensajes sencillos. Quiero hablar mejor.", "en": "I speak a little. I understand quite well. I write so-so. I can write simple messages. I want to speak better."}, {"who": "Christine", "es": "¿Por qué estudias español?", "en": "Why do you study Spanish?"}, {"who": "Gregory", "es": "Estudio español porque me gusta aprender idiomas. Quiero viajar a España y hablar con mis amigos.", "en": "I study Spanish because I like learning languages. I want to travel to Spain and talk with my friends."}, {"who": "Gregory", "es": "Busco una herramienta para aprender español.", "en": "I'm looking for a tool to learn Spanish."}, {"who": "Christine", "es": "Mi escuela crea un método de aprendizaje nuevo. También hay un intercambio de idiomas.", "en": "My school is creating a new learning method. There's also a language exchange."}, {"who": "Gregory", "es": "¿Cuál es la ventaja?", "en": "What's the advantage?"}, {"who": "Christine", "es": "La ventaja es que aprender es muy divertido.", "en": "The advantage is that learning is very fun."}, {"who": "Gregory", "es": "Invierto tiempo en estudiar y trabajo mucho.", "en": "I invest time in studying and I work a lot."}, {"who": "Christine", "es": "¡Excelente!", "en": "Excellent!"}, {"who": "Christine", "es": "¿Qué te gusta hacer en tu tiempo libre?", "en": "What do you like doing in your free time?"}, {"who": "Gregory", "es": "Me gusta correr, nadar y leer. ¿Y a ti?", "en": "I like running, swimming and reading. And you?"}, {"who": "Christine", "es": "Me gusta cocinar, bailar y leer.", "en": "I like cooking, dancing and reading."}, {"who": "Gregory", "es": "¡A mí también me gusta leer! ¿Cocinas bien?", "en": "I like reading too! Do you cook well?"}, {"who": "Christine", "es": "Cocino muy mal, pero me gusta comer. ¿Te gusta bailar?", "en": "I cook very badly, but I like eating. Do you like dancing?"}, {"who": "Gregory", "es": "A mí no. No me gusta bailar. ¿Cantas bien?", "en": "Not me. I don't like dancing. Do you sing well?"}, {"who": "Christine", "es": "Canto muy mal, pero toco la guitarra. ¿Y tú? ¿Tocas la guitarra?", "en": "I sing very badly, but I play the guitar. And you? Do you play the guitar?"}, {"who": "Gregory", "es": "No, no toco la guitarra. Veo la tele el domingo.", "en": "No, I don't play the guitar. I watch TV on Sunday."}, {"who": "Christine", "es": "¿Te gustan las películas españolas?", "en": "Do you like Spanish films?"}, {"who": "Gregory", "es": "Sí, me encantan. ¿Y a ti?", "en": "Yes, I love them. And you?"}, {"who": "Christine", "es": "Me gustan mucho. A mis amigos les gustan los museos también.", "en": "I like them a lot. My friends like museums too."}, {"who": "Gregory", "es": "Christine, ¿qué quieres hacer este fin de semana?", "en": "Christine, what do you want to do this weekend?"}, {"who": "Christine", "es": "El sábado voy de compras con mis amigas. El domingo quiero ir a una exposición. ¿Y tú?", "en": "On Saturday I'm going shopping with my friends. On Sunday I want to go to an exhibition. And you?"}, {"who": "Gregory", "es": "El sábado tengo clase. El domingo quiero correr y ver una película.", "en": "On Saturday I have class. On Sunday I want to run and watch a film."}, {"who": "Christine", "es": "¿Vas al gimnasio?", "en": "Are you going to the gym?"}, {"who": "Gregory", "es": "Sí, voy al gimnasio y después voy a casa.", "en": "Yes, I'm going to the gym and afterwards I'm going home."}, {"who": "Christine", "es": "¿Quieres ir al cine el sábado?", "en": "Do you want to go to the cinema on Saturday?"}, {"who": "Gregory", "es": "Lo siento, no puedo, porque tengo clase.", "en": "Sorry, I can't, because I have class."}, {"who": "Christine", "es": "¿Y el domingo? ¿Vamos al cine?", "en": "And on Sunday? Shall we go to the cinema?"}, {"who": "Gregory", "es": "¡Sí, vamos! ¿Qué película quieres ver?", "en": "Yes, let's go! What film do you want to watch?"}, {"who": "Christine", "es": "Quiero ver una película española. El cine está en el centro de Madrid.", "en": "I want to watch a Spanish film. The cinema is in the centre of Madrid."}, {"who": "Gregory", "es": "¿Hay una exposición en Madrid?", "en": "Is there an exhibition in Madrid?"}, {"who": "Christine", "es": "Sí, hay una exposición muy buena en el museo del Prado.", "en": "Yes, there's a very good exhibition at the Prado museum."}, {"who": "Christine", "es": "Gregory, ¿cuál es tu número de teléfono?", "en": "Gregory, what's your phone number?"}, {"who": "Gregory", "es": "Es el seis, uno, dos, treinta y cuatro, cincuenta y seis, setenta y ocho.", "en": "It's 6, 1, 2, 34, 56, 78."}, {"who": "Christine", "es": "¿Y tu email?", "en": "And your email?"}, {"who": "Gregory", "es": "Mi email es gregory arroba gmail punto com. ¿Cuál es tu número de teléfono?", "en": "My email is gregory at gmail dot com. What's your phone number?"}, {"who": "Christine", "es": "Es el seis, cero, cinco, veintidós, cuarenta y uno, sesenta y tres. Mi email es christine arroba gmail punto com.", "en": "It's 6, 0, 5, 22, 41, 63. My email is christine at gmail dot com."}, {"who": "Christine", "es": "Hay un Club de Español en mi escuela de idiomas. ¿Qué quieres hacer en el club?", "en": "There's a Spanish Club at my language school. What do you want to do in the club?"}, {"who": "Gregory", "es": "Quiero hacer un intercambio de idiomas porque quiero practicar. También quiero cocinar comida española y hablar con otros estudiantes.", "en": "I want to do a language exchange because I want to practise. I also want to cook Spanish food and talk with other students."}, {"who": "Christine", "es": "¡Qué bien! Gracias, Gregory.", "en": "How nice! Thank you, Gregory."}, {"who": "Gregory", "es": "De nada. ¡Hasta luego, Christine!", "en": "You're welcome. See you later, Christine!"}, {"who": "Christine", "es": "¡Hasta pronto! Un saludo.", "en": "See you soon! Best wishes."}];
+const NAMES = {christine:"Christine", gregory:"Gregory"};
+let mode = "all", showAll = false, opened = new Set();
+try { const m = localStorage.getItem("sdm-mode"); if (m in NAMES) mode = m; } catch(e) {}
+const list = document.getElementById("list"), tool = document.getElementById("tool");
+const convert = document.getElementById("convert"), reset = document.getElementById("reset"), hint = document.getElementById("hint");
+function el(tag, cls, text){ const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
+function render(){
+  list.textContent = "";
+  list.classList.toggle("all", mode === "all");
+  for (const m of ["all","christine","gregory"]) document.getElementById("m-"+m).setAttribute("aria-pressed", String(m === mode));
+  tool.hidden = mode === "all";
+  if (mode !== "all"){
+    const me = NAMES[mode];
+    tool.style.setProperty("--who", mode === "christine" ? "var(--chris)" : "var(--greg)");
+    convert.textContent = showAll ? "Hide my Spanish" : "Show my Spanish";
+    convert.setAttribute("aria-pressed", String(showAll));
+    reset.hidden = !(opened.size || showAll);
+    hint.textContent = "Your lines are in English. Tap a line to see it in Spanish, or use the button for all of them.";
+  }
+  DATA.forEach((r, i) => {
+    const li = el("li", "row " + (r.who === "Christine" ? "c" : "g"));
+    li.appendChild(el("div", "who", r.who));
+    const body = el("div", "body");
+    if (mode === "all"){
+      body.appendChild(el("div", "es", r.es));
+      body.appendChild(el("div", "en", r.en));
+    } else if (r.who !== NAMES[mode]){
+      body.appendChild(el("div", "es", r.es));
+    } else {
+      const open = showAll || opened.has(i);
+      const b = el("button", "line tap");
+      b.type = "button";
+      b.setAttribute("aria-expanded", String(open));
+      b.appendChild(el("span", "en", r.en));
+      if (!open) b.appendChild(el("span", "tapnote", "Tap for Spanish"));
+      b.addEventListener("click", () => { opened.has(i) ? opened.delete(i) : opened.add(i); render(); });
+      body.appendChild(b);
+      if (open){
+        const t = el("div", "tr");
+        t.appendChild(el("small", null, "Español"));
+        t.appendChild(document.createTextNode(r.es));
+        body.appendChild(t);
+      }
+    }
+    li.appendChild(body);
+    list.appendChild(li);
+  });
+}
+document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
+  mode = b.dataset.mode; showAll = false; opened = new Set();
+  try { localStorage.setItem("sdm-mode", mode); } catch(e) {}
+  render(); window.scrollTo({top:0});
+}));
+convert.addEventListener("click", () => { showAll = !showAll; if (!showAll) opened = new Set(); render(); });
+reset.addEventListener("click", () => { showAll = false; opened = new Set(); render(); });
+render();
+</script>
+
+</body></html>
